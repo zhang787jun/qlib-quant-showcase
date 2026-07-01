@@ -1,7 +1,5 @@
 # Qlib Quant Showcase
 
-[![Tests](https://github.com/zhang787jun/qlib-quant-showcase/actions/workflows/tests.yml/badge.svg)](https://github.com/zhang787jun/qlib-quant-showcase/actions/workflows/tests.yml)
-
 Two public, reproducible quant projects:
 
 1. **Cross-sectional factor research**: momentum, reversal, low-volatility, and trend-strength factors with IC and quantile-return diagnostics.
@@ -119,7 +117,7 @@ results/                          # generated reports and CSV artifacts
 - Add transaction-cost and slippage assumptions.
 - Add walk-forward parameter checks.
 - Add Qlib data-handler integration after the public minimum projects are stable.
-- Extend GitHub Actions to regenerate sample reports on demand.
+- Add CI report regeneration after the public demo surface is stable.
 
 ## Risk Notice
 
