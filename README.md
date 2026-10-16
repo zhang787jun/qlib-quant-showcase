@@ -1,4 +1,4 @@
-# Qlib Quant Showcase
+# Quant Research Showcase
 
 Two public, reproducible quant projects:
 
@@ -7,7 +7,21 @@ Two public, reproducible quant projects:
 
 The repository is intentionally public-safe: default runs use deterministic synthetic ETF-style prices, so the examples do not expose private holdings or require paid market data. Optional Stooq public-price fetching is available for local exploration.
 
+## Scope and current status
+
+The current implementation is a small Python research example built on **NumPy and pandas**, not a Qlib-powered pipeline. Qlib data-handler integration is planned work, as listed in the roadmap.
+
+The engineering work here is the factor calculation, backtest, and report-generation workflow:
+
+- [Factor definitions](./src/quant_showcase/factors.py) and [factor diagnostics](./src/quant_showcase/factor_research.py).
+- [Momentum backtest](./src/quant_showcase/backtest.py) and [performance metrics](./src/quant_showcase/metrics.py).
+- [Data generation and loading](./src/quant_showcase/data.py), [tests](./tests/), and [project scope](./docs/project-spec.md).
+
+Default sample outputs demonstrate code paths and report structure. They are **not historical ETF returns, evidence of investment skill, or a claim that the strategy is profitable**. Transaction costs, slippage, and walk-forward checks remain roadmap items. The commands below are the local reproduction and verification steps; the presence of tests is not a substitute for running them in your environment.
+
 ## Quickstart
+
+Requires Python 3.10 or newer. Use an isolated Python environment for the dependency installation.
 
 ```bash
 git clone https://github.com/zhang787jun/qlib-quant-showcase.git
@@ -99,7 +113,7 @@ python3 scripts/run_factor_research.py --source stooq
 python3 scripts/run_strategy_backtest.py --source stooq
 ```
 
-If the network call fails, the loader falls back to deterministic sample data so tests and demos still run.
+If a Stooq fetch fails, the loader falls back to deterministic sample data. Check the reported data source before interpreting any result; a run requested with `--source stooq` can therefore still contain synthetic data.
 
 ## Repository Layout
 
